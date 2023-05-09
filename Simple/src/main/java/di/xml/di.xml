@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- di.xml.Car클래스의 객체를 생성하여 car라는 이름으로 Spring Bean 등록하기 -->
+	<!-- Spring Context영역에 등록된다 -->
+	<!-- Spring Framework가 관리할 수 있는 객체가 된다 -->
+	<bean id="car" class="di.xml.Car"/>
+
+	<!-- di.tite.Tire 인터페이스의 구현체(클래스)들을 SpringBean으로 등록하기 -->
+	<bean id="gTire" class="di.tire.GoldTire"/>
+	<bean id="sTire" class="di.tire.SilverTire"/>
+
+	<!-- Construct DI -->
+	<bean id="car2" class="di.xml.Car">
+		<constructor-arg ref="sTire" />
+	</bean>
+
+	<!-- Setter DI -->
+	<bean id="car3" class="di.xml.Car">
+		<property name="tire" ref="gTire"/>
+	</bean>
+
+</beans>
