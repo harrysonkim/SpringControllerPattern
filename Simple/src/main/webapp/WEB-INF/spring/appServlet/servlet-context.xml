@@ -19,8 +19,9 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		
 	</beans:bean>
 	
-	<context:component-scan base-package="a.b.c, web.controller" />
-	
+	<context:component-scan base-package="a.b.c, web.controller, dept.controller, dept.service" />
+
 </beans:beans>
