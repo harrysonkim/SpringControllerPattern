@@ -22,6 +22,6 @@
 		
 	</beans:bean>
 	
-	<context:component-scan base-package="a.b.c, web.controller, dept.controller, dept.service" />
+	<context:component-scan base-package="a.b.c, web.controller, dept.controller, dept.service, login.controller, login.service" />
 
 </beans:beans>

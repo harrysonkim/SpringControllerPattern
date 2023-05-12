@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 마이바티스 3 Configuration DTO -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 마이바티스 3 서정 항목을 넣는 태그 -->
+<!-- 최상위 부모 객체 -->
+<configuration>
+
+	<properties resource="mybatis/db.properties" />
+
+	<!-- 마이바티스 동작 방식 설정 -->
+	<settings>
+	
+		<!-- 조회 컬럼의 SnakeCase(_활용) 형식을 자바 멤버필드의 CamelCase형식으로 자동 변환 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		
+		<!-- JDBC타입 명시되지 않은 상황에서 null값을 처리하는 방법 -->
+		<!-- ** value속성값으로 NULL을 "대문자"로 작성해야 한다 -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		
+	</settings>
+<typeAliases>
+	<package name="web.dto"/>
+
+</typeAliases>
+	<!-- 프로젝트 (프로그램)가 접속할 수 있도록 DB정보들을 설정할 수 있다 -->
+	<environments default="development">
+
+		<!-- 접속할 DB에 대한 정보 -->
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+
+	</environments>
+
+	<!-- SQL쿼리들을 작성해둘 마이바티스 매퍼(Mapper) 파일들의 위치를 설정한다 -->
+	<mappers>
+		<mapper resource="web/dao/mapper/EmpMapper.xml" />
+		<mapper resource="web/dao/mapper/MapUnderscoreMapper.xml" />
+		<mapper resource="dynamic/dao/mapper/DynamicQueryMapper.xml" />
+	</mappers>
+
+</configuration>

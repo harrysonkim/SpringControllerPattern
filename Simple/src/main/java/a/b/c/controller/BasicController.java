@@ -11,6 +11,7 @@ public class BasicController {
 	public void basicMethod () {
 		System.out.println("/basic/test [GET]");
 		
+		
 	}
 
 	@RequestMapping( value = "/basic/test", method = RequestMethod.POST )

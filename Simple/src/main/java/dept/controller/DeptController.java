@@ -26,10 +26,6 @@ public class DeptController {
 		// 전체 부서 목록 조회
 		List<Dept> list = deptSerivce.list();
 		
-		for( Dept d : list) {
-			System.out.println(d);
-		}
-		
 		model.addAttribute("list", list);
 	}
 }
