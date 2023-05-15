@@ -24,7 +24,6 @@ public class LoginServiceImpl implements LoginService {
 		int res = loginDao.insertUser(login);
 		if (res > 0) {
 			logger.info("insert성공 res : " + res);
-
 		} else {
 			logger.info("insert실패 res : " + res);
 

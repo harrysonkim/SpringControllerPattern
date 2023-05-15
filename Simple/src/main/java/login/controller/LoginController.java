@@ -84,7 +84,7 @@ public class LoginController {
 
 		session.invalidate();
 		
-		return "/login/main";
+		return "redirect:./main";
 	}
 	
 

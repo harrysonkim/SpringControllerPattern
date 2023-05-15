@@ -40,6 +40,14 @@
 		<level value="info" />
 	</logger>
 
+	<logger name="interceptor">
+		<level value="info" />
+	</logger>
+
+	<logger name="file">
+		<level value="info" />
+	</logger>
+
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
