@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.net.URLEncoder" %>
-<%@ page import="java.security.SecureRandom" %>
-<%@ page import="java.math.BigInteger" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,12 +20,12 @@
 <h1 class="text-center mt-5 mb-5">점집닷컴</h1>
 
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="id" placeholder="ID">
-  <label for="floatingInput">ID</label>
+  <input type="text" class="form-control" name="user_nick" name="user_email" id="user_email" placeholder="Email">
+  <label for="floatingInput">Email</label>
 </div>
 
 <div class="form-floating">
-  <input type="password" class="form-control" id="pw" placeholder="Password">
+  <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="Password">
   <label for="floatingPassword">Password</label>
 </div>
 
@@ -42,8 +40,12 @@
 </div>
 </div>
 
-<button class="btn btn-primary btn-lg" type="button">로그인</button>
-<button class="btn btn-outline-secondary btn-lg" type="button">회원가입</button>
+<button class="btn btn-primary btn-lg">로그인</button>
+</div>
+</div>
+</form>
+
+<a href="/user/join"><button class="btn btn-outline-secondary btn-lg" type="button">회원가입</button></a>
 
 <div class="nav justify-content-center col">
 	<div class="nav-item"><a class="nav-link" href="#">아이디 찾기</a></div>	
@@ -52,29 +54,13 @@
 </div>
 
 <!-- 네이버 로그인 -->
-  <%
-    String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("YOUR_CALLBACK_URL", "UTF-8");
-    SecureRandom random = new SecureRandom();
-    String state = new BigInteger(130, random).toString();
-    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
-         + "&client_id=" + clientId
-         + "&redirect_uri=" + redirectURI
-         + "&state=" + state;
-    session.setAttribute("state", state);
- %>
+
 <div class="container">
-  <a href="<%=apiURL%>"><img height="50" src="/resources/img/btnG_iconCircle.png"/></a>
+  <a href="#"><img height="50" src="/resources/img/btnG_iconCircle.png"/></a>
   <a href="#"><img height="50" src="/resources/img/kakao_logo_round.png"/></a>
 </div>
 </div>
-</div>
 
-</form>
-
-
-
-</div>
 
 </body>
 </html>

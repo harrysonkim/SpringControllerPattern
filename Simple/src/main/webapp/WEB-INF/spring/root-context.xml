@@ -18,8 +18,16 @@
 		<!-- 스프링 빈으로 등록된 dataSource를 이용한 DB접속 정보 설정 -->
 		<property name="dataSource" ref="dataSource"/>
 
-		<!-- 마이바티스 설정 파일(XML)의 위치 지정하기 -->
+		<!-- 1.마이바티스 설정 파일(XML)의 위치 지정하기 -->
 <!-- 		<property name="configLocation" ref="classpath:/myBatis-config.xml"/> -->
+
+		<!-- 2/Configuration XML파일 없이 설정항목 적용하기 -->
+<!-- 		<property name="configuration"> -->
+<!-- 			<bean class="org.apache.ibatis.session.Configuration"> -->
+<!-- 				<property name="mapUnderscoreToCamelCase" value="true"></property> -->
+<!-- 				<property name="jdbcTypeForNull" value="NULL"></property> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
 
 		<!-- mapper XML파일의 위치 설정-->
 		<property name="mapperLocations">
@@ -35,6 +43,6 @@
 	<!-- 마이바티스를 이용하는 인턴페이스 설정(DAO설정) -->
 	<!-- Mapper XML의 newspace속성에 맞는 인터페이스를 찾는 패키지 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="dept.dao, login.dao"/>
+		<property name="basePackage" value="dept.dao, login.dao, file.dao"/>
 	</bean>
 </beans>
